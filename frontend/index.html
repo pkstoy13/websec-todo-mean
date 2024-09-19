@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+  </head>
+  <body>
+    <h1>Todo List</h1>
+
+    <!-- Form to add a new todo -->
+    <form hx-post="/api/todos" hx-target="#todo-list" hx-swap="beforeend">
+      <input type="text" name="text" placeholder="New todo" required />
+      <button type="submit">Add Todo</button>
+    </form>
+
+    <!-- List of todos -->
+    <ul id="todo-list" hx-get="/api/todos" hx-trigger="load">
+      <!-- Todos will be loaded here dynamically -->
+    </ul>
+  </body>
+</html>

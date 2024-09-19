@@ -25,10 +25,10 @@ mongoose
     process.exit(1);
   });
 
+const todoRoutes = require("./routes/todoRoutes");
+app.use("/api/todos", todoRoutes);
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
-
-const todoRoutes = require("./routes/todoRoutes");
-app.use("/api/todos", todoRoutes);
