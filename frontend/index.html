@@ -24,6 +24,42 @@
     <div class="jost-500">
       <button type="button" class="btn btn-lg btn-outline-dark">Sign In</button>
     </div>
+    <div id="auth" class="jost-500">
+      <h2>Login</h2>
+      <form
+        id="login-form"
+        hx-post="/api/auth/login"
+        hx-target="#auth"
+        hx-swap="innerHTML"
+      >
+        <input type="text" name="email" placeholder="Email" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit">Login</button>
+      </form>
+
+      <h2>Register</h2>
+      <form
+        id="register-form"
+        hx-post="/api/auth/register"
+        hx-target="#auth"
+        hx-swap="innerHTML"
+      >
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit">Register</button>
+      </form>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

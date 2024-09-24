@@ -1,12 +1,17 @@
 require("dotenv").config();
 const express = require("express");
+const path = require("path");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+app.use(cors());
+
+app.use(express.static(path.join(__dirname, "../frontend")));
 
 // Example route
 app.get("/", (req, res) => {
@@ -27,6 +32,9 @@ mongoose
 
 const todoRoutes = require("./routes/todoRoutes");
 app.use("/api/todos", todoRoutes);
+
+const authRoutes = require("./routes/authRoutes");
+app.use("/api/auth", authRoutes);
 
 // Start the server
 app.listen(PORT, () => {
