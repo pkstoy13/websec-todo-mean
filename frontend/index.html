@@ -22,43 +22,96 @@
   <body>
     <img src="./img/To-Do-It Logo.png" class="logo" alt="Logo" />
     <div class="jost-500">
-      <button type="button" class="btn btn-lg btn-outline-dark">Sign In</button>
+      <button
+        type="button"
+        class="btn btn-lg btn-outline-dark"
+        data-bs-toggle="modal"
+        data-bs-target="#authModal"
+      >
+        Sign In
+      </button>
     </div>
-    <div id="auth" class="jost-500">
-      <h2>Login</h2>
-      <form
-        id="login-form"
-        hx-post="/api/auth/login"
-        hx-target="#auth"
-        hx-swap="innerHTML"
-      >
-        <input type="text" name="email" placeholder="Email" required />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
+    <div
+      class="modal fade"
+      id="authModal"
+      tabindex="-1"
+      aria-labelledby="authModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="authModalLabel">
+              Login /<button id="register-link">Register</button>
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- Authentication Forms -->
+            <div id="auth" class="jost-500">
+              <div>
+                <form
+                  id="login-form"
+                  hx-post="/api/auth/login"
+                  hx-target="#auth"
+                  hx-swap="innerHTML"
+                >
+                  <input
+                    class="form-control form-control-lg"
+                    type="text"
+                    name="email"
+                    placeholder="Email"
+                    required
+                  />
+                  <input
+                    class="form-control form-control-lg"
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    class="btn btn-outline-dark form-control"
+                  >
+                    Login
+                  </button>
+                </form>
+              </div>
 
-      <h2>Register</h2>
-      <form
-        id="register-form"
-        hx-post="/api/auth/register"
-        hx-target="#auth"
-        hx-swap="innerHTML"
-      >
-        <input type="text" name="name" placeholder="Name" required />
-        <input type="email" name="email" placeholder="Email" required />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          required
-        />
-        <button type="submit">Register</button>
-      </form>
+              <div class="register-style">
+                <h2>Register</h2>
+                <form
+                  id="register-form"
+                  hx-post="/api/auth/register"
+                  hx-target="#auth"
+                  hx-swap="innerHTML"
+                >
+                  <input type="text" name="name" placeholder="Name" required />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                  />
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    required
+                  />
+                  <button type="submit">Register</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
