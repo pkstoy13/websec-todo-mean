@@ -18,3 +18,23 @@ body {
   font-weight: 500;
   font-style: normal;
 }
+
+.login-style {
+  //display: flex;
+  //flex-direction: column;
+  //width: 50vw;
+}
+
+.register-style {
+  display: none;
+}
+
+#register-link {
+  border: none;
+  color: blue;
+  background-color: white;
+}
+
+form input {
+  margin: 4px;
+}
